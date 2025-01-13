@@ -12,7 +12,7 @@ public class Student {
                 System.out.println("Course Code: " + courseDetails[0]);
                 System.out.println("Course Name: " + courseDetails[1]);
                 System.out.println("Course Description: " + courseDetails[2]);
-                System.out.println("--------------------------");
+                System.out.println("-------------------------------------------");
             }
         } catch (IOException e) {
             System.out.println("Error reading courses.");
@@ -45,10 +45,12 @@ public class Student {
 
     public void showPortalMenu() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("________________________________________________________\n");
         System.out.println("\nYou are logged in successfully. Select an option:");
         System.out.println("1. View Courses");
         System.out.println("2. Enroll in a Course");
         System.out.println("3. Exit");
+        System.out.print("________________________________________________________\n");
 
         int choice = sc.nextInt();
         if (choice == 1) {

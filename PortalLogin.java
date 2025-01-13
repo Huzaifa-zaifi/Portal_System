@@ -6,11 +6,13 @@ public class PortalLogin {
     //? sign-up
     public void studentSignUp() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("********************************************************\n");
+        
         System.out.println("Enter your username:");
         String username = sc.nextLine();
         System.out.println("Enter your password:");
         String password = sc.nextLine();
-
+        System.out.println("********************************************************\n");
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("students.txt", true))) {
             writer.write(username + "," + password);  
@@ -24,11 +26,12 @@ public class PortalLogin {
     //? slogin
     public void studentLogin() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("********************************************************\n");
         System.out.println("Enter your username:");
         String username = sc.nextLine();
         System.out.println("Enter your password:");
         String password = sc.nextLine();
-
+        System.out.println("********************************************************\n");
         try (BufferedReader reader = new BufferedReader(new FileReader("students.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -49,12 +52,14 @@ public class PortalLogin {
     //? sign-up
     public void facultySignUp() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("********************************************************\n");
         System.out.println("Enter your faculty ID:");
         String fId = sc.nextLine();
         System.out.println("Enter your username:");
         String username = sc.nextLine();
         System.out.println("Enter your password:");
         String password = sc.nextLine();
+        System.out.println("********************************************************\n");
 
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("faculty.txt", true))) {
@@ -70,7 +75,7 @@ public class PortalLogin {
     public void facultyLogin() {
         Scanner sc = new Scanner(System.in);
         String username,password;
-               
+        System.out.println("********************************************************\n");
         System.out.println("Enter your username:");
         username = sc.nextLine();
         System.out.println("Enter your password:");
@@ -84,6 +89,7 @@ public class PortalLogin {
                 if (userDetails[1].equals(username) && userDetails[2].equals(password)) {
                     System.out.println("Faculty login successful!");
                     Faculty faculty = new Faculty();
+                    System.out.println("********************************************************\n");
                     faculty.showF();
                     return;  
                 }

@@ -6,6 +6,7 @@ public class Faculty {
     //? Creting Enrollment
     public void createCourse() {
         Scanner sc = new Scanner(System.in);
+        
         System.out.println("Enter Course Name:");
         String courseName = sc.nextLine();
         System.out.println("Enter Course Code:");
@@ -26,10 +27,12 @@ public class Faculty {
     public void showAllStudents() {
         try (BufferedReader reader = new BufferedReader(new FileReader("students.txt"))) {
             String line;
+            int i = 1;
             System.out.println("List of all students:");
             while ((line = reader.readLine()) != null) {
                 String[] studentDetails = line.split(",");
-                System.out.println("Username: " + studentDetails[0]);
+                System.out.println("Student "+i+": " + studentDetails[0]);
+                i++;
             }
         } catch (IOException e) {
             System.out.println("Error reading students.");
@@ -41,11 +44,12 @@ public class Faculty {
         Faculty faculty = new Faculty();
 
         while (true) {
-            
+            System.out.print("________________________________________________________\n");
             System.out.println("\nFaculty Portal Menu:");
             System.out.println("1. Create a Course");
             System.out.println("2. Show all the students");
             System.out.println("3. Exit");
+            System.out.print("________________________________________________________\n");
             int choice = sc.nextInt();
             sc.nextLine();
 

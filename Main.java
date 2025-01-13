@@ -8,7 +8,9 @@ public class Main {
         PortalLogin portal = new PortalLogin();
         if(c == 1){
             int choice = 0;
+            System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             System.out.println("Choose an option\n1: Faculty-member signup\n2: Faculty login\n3: Back");
+            System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             choice = sc.nextInt();
             if(choice == 1){
                 portal.facultySignUp();
@@ -25,7 +27,9 @@ public class Main {
         else if(c == 2){
             int choice = 0;
             while(true){
+            System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             System.out.println("Choose an option\n1: Student-signup\n2: Student-Login\n3: Back");
+            System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
             choice = sc.nextInt();
             if(choice == 1){
                 portal.studentSignUp();
