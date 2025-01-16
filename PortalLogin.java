@@ -39,8 +39,8 @@ public class PortalLogin {
                 if (userDetails[0].equals(username) && userDetails[1].equals(password)) {
                     System.out.println("Student login successful!");
                     Student student = new Student();
-                    student.showPortalMenu();
-                    return;
+                    student.showPMenu();  
+                    return;  
                 }
             }
             System.out.println("Invalid username or password");
@@ -87,9 +87,8 @@ public class PortalLogin {
                 if (userDetails[1].equals(username) && userDetails[2].equals(password)) {
                     System.out.println("Faculty login successful!");
                     Faculty faculty = new Faculty();
-                    System.out.println("********************************************************\n");
-                    faculty.showF();
-                    return;
+                    faculty.showF(); 
+                    return;  
                 }
             }
             System.out.println("Invalid username or password.");
@@ -111,6 +110,3 @@ public class PortalLogin {
         }
     }
 }
-
-    
-       

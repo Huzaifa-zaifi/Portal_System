@@ -20,9 +20,10 @@ public class Menu {
         System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
         choice = sc.nextInt();
-        Main m = new Main(choice);  // Pass the choice to Main
+        Main m = new Main(choice); 
     }
 
+    //? From internet
     public void clearScreen() {
         String os = System.getProperty("os.name").toLowerCase();
         if (os.contains("win")) {
