@@ -2,45 +2,44 @@ import java.util.Scanner;
 
 public class Main {
 
-    Main(int c) {
+    Main(int choice) {
         Menu menu = new Menu();
+        Scanner sc = new Scanner(System.in);
+
         while (true) {
-            Scanner sc = new Scanner(System.in);
-            PortalLogin portal = new PortalLogin();
-            menu.clearScreen();
-            if (c == 1) {
-                int choice = 0;
+            if (choice == 1) {
+                int option = 0;
                 System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
                 System.out.println("Choose an option\n1: Faculty-member signup\n2: Faculty login\n3: Back");
                 System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-                choice = sc.nextInt();
-                if (choice == 1) {
-                    portal.facultySignUp();
+                option = sc.nextInt();
+                if (option == 1) {
+                    new PortalLogin().facultySignUp();
                     menu.showMenu();
-                } else if (choice == 2) {
-                    portal.facultyLogin();
+                } else if (option == 2) {
+                    new PortalLogin().facultyLogin();
                     menu.showMenu();
                 } else {
                     menu.showMenu();
                 }
-            } else if (c == 2) {
-                int choice = 0;
+            } else if (choice == 2) {
+                int option = 0;
                 while (true) {
                     System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
                     System.out.println("Choose an option\n1: Student-signup\n2: Student-Login\n3: Back");
                     System.out.print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-                    choice = sc.nextInt();
-                    if (choice == 1) {
-                        portal.studentSignUp();
+                    option = sc.nextInt();
+                    if (option == 1) {
+                        new PortalLogin().studentSignUp();
                         menu.showMenu();
-                    } else if (choice == 2) {
-                        portal.studentLogin();
+                    } else if (option == 2) {
+                        new PortalLogin().studentLogin();
                         menu.showMenu();
                     } else {
                         menu.showMenu();
                     }
                 }
-            } else if (c == 3) {
+            } else if (choice == 3) {
                 menu.exit();
             }
         }
@@ -48,6 +47,6 @@ public class Main {
 
     public static void main(String[] args) {
         Menu menu = new Menu();
-        menu.showMenu();
+        menu.showMenu();  
     }
 }

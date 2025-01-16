@@ -70,7 +70,7 @@ public class Student {
 
             System.out.println("Successfully withdrawn from course with code: " + courseCode);
         } catch (IOException e) {
-            System.out.println("Error withdrawing from course.");
+            System.out.println("Error withdrawing from course");
         }
     }
 
