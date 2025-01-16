@@ -3,35 +3,35 @@ import java.util.Scanner;
 
 public class PortalLogin {
 
-    //? sign-up
     public void studentSignUp() {
         Scanner sc = new Scanner(System.in);
+        clearScreen();
         System.out.println("********************************************************\n");
-        
         System.out.println("Enter your username:");
         String username = sc.nextLine();
         System.out.println("Enter your password:");
         String password = sc.nextLine();
         System.out.println("********************************************************\n");
-        
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("students.txt", true))) {
-            writer.write(username + "," + password);  
-            writer.newLine();  
+            writer.write(username + "," + password);
+            writer.newLine();
             System.out.println("Student sign-up successful!");
         } catch (IOException e) {
             System.out.println("Error during sign-up");
         }
     }
 
-    //? slogin
     public void studentLogin() {
         Scanner sc = new Scanner(System.in);
+        clearScreen();
         System.out.println("********************************************************\n");
         System.out.println("Enter your username:");
         String username = sc.nextLine();
         System.out.println("Enter your password:");
         String password = sc.nextLine();
         System.out.println("********************************************************\n");
+
         try (BufferedReader reader = new BufferedReader(new FileReader("students.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -40,7 +40,7 @@ public class PortalLogin {
                     System.out.println("Student login successful!");
                     Student student = new Student();
                     student.showPortalMenu();
-                    return; 
+                    return;
                 }
             }
             System.out.println("Invalid username or password");
@@ -49,9 +49,9 @@ public class PortalLogin {
         }
     }
 
-    //? sign-up
     public void facultySignUp() {
         Scanner sc = new Scanner(System.in);
+        clearScreen();
         System.out.println("********************************************************\n");
         System.out.println("Enter your faculty ID:");
         String fId = sc.nextLine();
@@ -61,7 +61,6 @@ public class PortalLogin {
         String password = sc.nextLine();
         System.out.println("********************************************************\n");
 
-        
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("faculty.txt", true))) {
             writer.write(fId + "," + username + "," + password);
             writer.newLine();
@@ -71,17 +70,16 @@ public class PortalLogin {
         }
     }
 
-    //? login
     public void facultyLogin() {
         Scanner sc = new Scanner(System.in);
-        String username,password;
+        clearScreen();
+        String username, password;
         System.out.println("********************************************************\n");
         System.out.println("Enter your username:");
         username = sc.nextLine();
         System.out.println("Enter your password:");
         password = sc.nextLine();
-        
-        
+
         try (BufferedReader reader = new BufferedReader(new FileReader("faculty.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -91,7 +89,7 @@ public class PortalLogin {
                     Faculty faculty = new Faculty();
                     System.out.println("********************************************************\n");
                     faculty.showF();
-                    return;  
+                    return;
                 }
             }
             System.out.println("Invalid username or password.");
@@ -99,9 +97,20 @@ public class PortalLogin {
             System.out.println("Error during faculty login.");
         }
     }
+
+    public void clearScreen() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.out.println("Error clearing screen.");
+        }
+    }
 }
-
-
 
     
        

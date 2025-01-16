@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Faculty {
 
-    //? Creting Enrollment
     public void createCourse() {
         Scanner sc = new Scanner(System.in);
         
@@ -23,7 +22,6 @@ public class Faculty {
         }
     }
 
-    //? Showing all students
     public void showAllStudents() {
         try (BufferedReader reader = new BufferedReader(new FileReader("students.txt"))) {
             String line;
@@ -31,7 +29,7 @@ public class Faculty {
             System.out.println("List of all students:");
             while ((line = reader.readLine()) != null) {
                 String[] studentDetails = line.split(",");
-                System.out.println("Student "+i+": " + studentDetails[0]);
+                System.out.println("Student " + i + ": " + studentDetails[0]);
                 i++;
             }
         } catch (IOException e) {
@@ -39,24 +37,44 @@ public class Faculty {
         }
     }
 
-    public void showF(){
+    public void markAttendance() {
         Scanner sc = new Scanner(System.in);
-        Faculty faculty = new Faculty();
+        System.out.println("Enter the course code for marking attendance:");
+        String courseCode = sc.nextLine();
+        System.out.println("Enter the student name for marking attendance:");
+        String studentName = sc.nextLine();
+        System.out.println("Enter attendance percentage for the student (0-100):");
+        int attendance = sc.nextInt();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(studentName + "_attendance.txt", true))) {
+            writer.write(courseCode + "," + attendance);
+            writer.newLine();
+            System.out.println("Attendance marked successfully for " + studentName);
+        } catch (IOException e) {
+            System.out.println("Error marking attendance.");
+        }
+    }
+
+    public void showF() {
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
             System.out.print("________________________________________________________\n");
             System.out.println("\nFaculty Portal Menu:");
             System.out.println("1. Create a Course");
             System.out.println("2. Show all the students");
-            System.out.println("3. Exit");
+            System.out.println("3. Mark Attendance");
+            System.out.println("4. Exit");
             System.out.print("________________________________________________________\n");
             int choice = sc.nextInt();
             sc.nextLine();
 
             if (choice == 1) {
-                faculty.createCourse();
+                createCourse();
             } else if (choice == 2) {
-                faculty.showAllStudents();
+                showAllStudents();
+            } else if (choice == 3) {
+                markAttendance();
             } else {
                 System.out.println("Exiting Faculty Portal");
                 break;
